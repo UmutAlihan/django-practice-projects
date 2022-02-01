@@ -1,0 +1,4 @@
+sent_emails
+*.sqlite3
+venv
+.idea
