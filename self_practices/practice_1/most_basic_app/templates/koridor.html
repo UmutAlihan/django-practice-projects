@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Koridor{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+  {{ user.username }}, <br> Şu an koridordasın. <br> Hangi odaya girmek istersin?
+  <p><a href="{% url 'rooms:salon' %}">Salon</a></p>
+  <p><a href="{% url 'rooms:mutfak' %}">Mutfak</a></p>
+  <p><a href="{% url 'rooms:yatakoda' %}">YatakOda</a></p>
+  <p><a href="{% url 'rooms:kucukoda' %}">KucukOda</a></p>
+  <p><a href="{% url 'rooms:tuvalet' %}">Tuvalet</a></p>
+  <br>
+  <p><a href="{% url 'logout' %}">Log Out</a></p>
+{% else %}
+  <p>Giriş yapmamışsın. Kapıdasın</p>
+  <a href="{% url 'login' %}">Giriş yap</a>
+  <br>
+  <a href="{% url 'signup' %}">Kayıt ol</a>
+{% endif %}
+
+{% endblock %}
+
+
